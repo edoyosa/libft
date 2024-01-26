@@ -6,10 +6,10 @@
 /*   By: ebellini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 21:36:27 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/23 22:11:32 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/26 22:14:31 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "stdlib.h"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

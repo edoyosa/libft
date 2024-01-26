@@ -6,10 +6,10 @@
 /*   By: ebellini <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 21:37:11 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/23 22:12:14 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/26 22:08:42 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "stdlib.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {
