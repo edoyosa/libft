@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 00:10:11 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/28 15:49:35 by ebellini         ###   ########.fr       */
+/*   Created: 2024/01/28 15:30:41 by ebellini          #+#    #+#             */
+/*   Updated: 2024/01/28 17:02:40 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//DA RIVEDERE TEST 4 FRAU
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*ptr;
-	int		length;
+	char			*str;
+	unsigned int	i;
+	unsigned int	slength;
 
-	if (size == SIZE_MAX || nmemb == SIZE_MAX)
+	i = 0;
+	slength = ft_strlen(s);
+	if (!s)
 		return (0);
-	length = nmemb * size;
-	if (length < 0)
+	if (start >= slength)
+		str = ft_strdup("");
+	else if(len < slength - start)
+		str = (char *)malloc(sizeof(*s) * (len + 1));
+	else
+		str = (char *)malloc(sizeof(*s) * (slength - start));
+	if (!str)
 		return (0);
-	ptr = malloc(length);
-	if (!ptr)
-		return (0);
-	ft_memset(ptr, 0, length);
-	return (ptr);
+	while (s[i + start])
+	{
+		str[i] = s[i + start];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }
