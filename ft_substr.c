@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 15:30:41 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/28 17:02:40 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:21:28 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (0);
 	if (start >= slength)
 		str = ft_strdup("");
-	else if(len < slength - start)
-		str = (char *)malloc(sizeof(*s) * (len + 1));
+	else if (len < slength - start)
+		str = (char *)malloc(sizeof(char) * (len + 1));
 	else
-		str = (char *)malloc(sizeof(*s) * (slength - start));
+		str = (char *)malloc(sizeof(char) * (slength - start));
 	if (!str)
 		return (0);
-	while (s[i + start])
+	while (s[i + start] && i < len && start < slength)
 	{
 		str[i] = s[i + start];
 		i++;
