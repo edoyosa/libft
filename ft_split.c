@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 21:56:01 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/29 11:51:31 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:44:23 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ char	**ft_split(char const *s, char c)
 	words = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!words)
 		return (0);
-	ft_alloc_word(words, s, c, len);
+	if (!ft_alloc_word(words, s, c, len))
+		return (0);
 	return (words);
 }
