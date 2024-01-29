@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 15:13:01 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/27 17:13:58 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:19:01 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s && c != *s)
+	unsigned char	uc;
+
+	uc = c;
+	while (*s && uc != *s)
 		s++;
-	if (!(*s) && c)
+	if (!(*s) && uc)
 		return (0);
 	return ((char *)s);
 }
