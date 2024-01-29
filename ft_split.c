@@ -6,47 +6,51 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 21:56:01 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/28 22:56:34 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:51:31 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countwords(const char *s, char c)
+static size_t	ft_count(const char *s, char c)
 {
 	size_t	count;
-	size_t	z;
+	size_t	i;
 
-	z = 0;
+	i = 0;
 	count = 0;
-	while (s[z] == c)
-		z++;
-	while (s[z])
+	while (s[i])
 	{
-		if (s[z] != c)
+		if (s[i] != c)
 		{
 			count++;
-			while (s[z] && s[z] != c)
-				z++;
+			while (s[i] && s[i] != c)
+				i++;
 		}
 		else
-			z++;
+			i++;
 	}
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+static void	ft_freewords(char **words, size_t len)
 {
-	char	**words;
-	size_t	i;
-	size_t	j;
+	while (len > 0)
+	{
+		free(words[len]);
+		len--;
+	}
+	free(words[len]);
+	free(words);
+}
 
-	if (!s)
-		return (0);
+static char	**ft_alloc_word(char **words, const char *s, char c, size_t len)
+{
+	size_t	j;
+	size_t	i;
+
+	j = 0;
 	i = 0;
-	words = (char **)malloc(sizeof(char *) * (ft_countwords(s, c) + 1));
-	if (!words)
-		return (0);
 	while (*s)
 	{
 		if (*s != c)
@@ -54,11 +58,32 @@ char	**ft_split(char const *s, char c)
 			j = 0;
 			while (*s && *s != c && ++j)
 				s++;
-			words[i++] = ft_substr(s - j, 0, j);
+			words[i] = ft_substr(s - j, 0, j);
+			if (!words[i])
+			{
+				ft_freewords(words, len);
+				return (0);
+			}
+			i++;
 		}
 		else
 			s++;
 	}
 	words[i] = 0;
+	return (words);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**words;
+	size_t	len;
+
+	if (!s)
+		return (0);
+	len = ft_count(s, c);
+	words = (char **)malloc(sizeof(char *) * (len + 1));
+	if (!words)
+		return (0);
+	ft_alloc_word(words, s, c, len);
 	return (words);
 }
