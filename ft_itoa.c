@@ -6,13 +6,13 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:52:25 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/29 18:49:13 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/29 20:17:10 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_createnum(char *str, long n, size_t len, int sign)
+static char	*ft_createnum(char *str, long n, size_t len, int sign)
 {
 	unsigned char	c;
 
