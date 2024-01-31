@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:10:11 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/29 16:11:11 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:55:33 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 	size_t	length;
 
-	if (size == 0 || nmemb == 0)
+	if (!size || !nmemb)
 	{
 		ptr = malloc(1);
 		if (!ptr)
@@ -26,7 +26,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	}
 	else
 	{
-		if (SIZE_MAX / nmemb < size)
+		if (UINT_MAX / nmemb < size || SIZE_MAX / nmemb < size)
 			return (0);
 		length = nmemb * size;
 		ptr = malloc(length);

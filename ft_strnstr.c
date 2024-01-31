@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 20:33:51 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/27 23:05:06 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/31 15:18:58 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 	i = 0;
 	if (!(*needle))
 		return ((char *)haystack);
-	while (haystack[i] && i < n)
+	while (i < n && haystack[i])
 	{
 		if (haystack[i] == needle[0])
 		{

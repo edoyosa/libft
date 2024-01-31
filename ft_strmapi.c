@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 20:09:52 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/29 22:08:33 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/31 15:15:55 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
 	unsigned int	i;
 	size_t			len;
 
-	if (!s && !f)
+	if (!s || !f)
 		return (0);
 	i = 0;
 	len = ft_strlen(s);

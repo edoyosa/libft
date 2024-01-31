@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:15:38 by ebellini          #+#    #+#             */
-/*   Updated: 2024/01/30 14:58:56 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:42:05 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <limits.h>
 
 typedef struct s_list
 {
